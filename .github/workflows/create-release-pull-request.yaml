@@ -16,9 +16,14 @@ jobs:
         with:
           ref: ${{ github.event.inputs.repo_version }}
 
+      - name: Create branch for pull Request
+        id: cb
+        run: |
+          git checkout -b to-be-pulled ${{ github.event.inputs.repo_version }}
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.WORKFLOW_GITHUB_TOKEN }}
           base: release
+          branch: to-be-pulled
