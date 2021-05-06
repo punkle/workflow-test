@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: roadie-backstage-admin
+  description: Backstage administrators
+spec:
+  type: team
+  profile:
+    displayName: Backstage Admins
+    email: harley@qlik.example
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: harley
+spec:
+  profile:
+    displayName: 'Harley Kiffe'
+    email: harley@qlik.example
+  memberOf: [roadie-backstage-admin]
